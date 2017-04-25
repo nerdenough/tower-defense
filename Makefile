@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall
 LDFLAGS = -framework SDL2 -framework SDL2_image
-SRC_FILES = $(wildcard src/*.cc)
+SRC_FILES = $(wildcard src/*.cc) $(wildcard src/*/*.cc)
 OBJ_FILES = $(addprefix obj/,$(notdir $(SRC_FILES:.cc=.o)))
 EXECUTABLE = bin/main
 
