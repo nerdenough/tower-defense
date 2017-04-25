@@ -59,7 +59,12 @@ void Game::gameloop() {
       }
     }
 
+    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_RenderClear(renderer);
+
     update();
     render();
+
+    SDL_RenderPresent(renderer);
   }
 }
