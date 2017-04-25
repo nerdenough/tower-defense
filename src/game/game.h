@@ -3,7 +3,6 @@
 class Game {
   public:
     Game(int screenWidth, int screenHeight);
-    ~Game();
     bool init();
     void update(float dt);
     void render();

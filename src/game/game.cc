@@ -5,10 +5,6 @@ Game::Game(int screenWidth, int screenHeight) {
   this->screenHeight = screenHeight;
 }
 
-Game::~Game() {
-  close();
-}
-
 bool Game::init() {
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     printf("SDL failed to initialise! SDL Error: %s\n", SDL_GetError());
