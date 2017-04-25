@@ -5,7 +5,7 @@ class Game {
     Game(int screenWidth, int screenHeight);
     ~Game();
     bool init();
-    void update();
+    void update(float dt);
     void render();
     void gameloop();
     void close();

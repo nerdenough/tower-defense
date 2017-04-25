@@ -40,17 +40,21 @@ void Game::close() {
   SDL_Quit();
 }
 
-void Game::update() {
-  printf("Update!\n");
+void Game::update(float dt) {
+  printf("Update! dt: %f\n", dt);
 }
 
 void Game::render() {
-  printf("Render!\n");
+  SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  SDL_RenderClear(renderer);
+
+  SDL_RenderPresent(renderer);
 }
 
 void Game::gameloop() {
   bool running = true;
   SDL_Event e;
+  Uint32 currentTicks = SDL_GetTicks();
 
   while (running) {
     while (SDL_PollEvent(&e) != 0) {
@@ -59,12 +63,11 @@ void Game::gameloop() {
       }
     }
 
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-    SDL_RenderClear(renderer);
+    Uint32 newTicks = SDL_GetTicks();
+    float dt = (newTicks - currentTicks) / 1000.f;
+    currentTicks = newTicks;
 
-    update();
+    update(dt);
     render();
-
-    SDL_RenderPresent(renderer);
   }
 }
