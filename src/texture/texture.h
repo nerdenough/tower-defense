@@ -4,9 +4,9 @@
 
 class Texture {
   public:
-    Texture(SDL_Renderer *renderer);
+    Texture();
     ~Texture();
-    bool loadFromFile(std::string path);
+    bool loadFromFile(std::string path, SDL_Renderer *renderer);
     void free();
     void render(int x, int y, SDL_Rect *clip = NULL);
     int getWidth();

@@ -1,7 +1,6 @@
 #include "texture.h"
 
-Texture::Texture(SDL_Renderer *renderer) {
-  this->renderer = renderer;
+Texture::Texture() {
   texture = NULL;
   width = 0;
   height = 0;
@@ -11,8 +10,9 @@ Texture::~Texture() {
   free();
 }
 
-bool Texture::loadFromFile(std::string path) {
+bool Texture::loadFromFile(std::string path, SDL_Renderer *renderer) {
   free();
+  this->renderer = renderer;
 
   SDL_Surface *loadedSurface = IMG_Load(path.c_str());
   if (loadedSurface == NULL) {
@@ -36,6 +36,7 @@ bool Texture::loadFromFile(std::string path) {
 void Texture::free() {
   if (texture == NULL) {
     SDL_DestroyTexture(texture);
+    renderer = NULL;
     texture = NULL;
     width = 0;
     height = 0;
