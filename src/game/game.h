@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include "../states/play_state.h"
 
 class Game {
   public:
@@ -13,4 +14,5 @@ class Game {
     int screenHeight;
     SDL_Window *window;
     SDL_Renderer *renderer;
+    PlayState playState;
 };

@@ -23,6 +23,8 @@ bool Game::init() {
     return false;
   }
 
+  playState.init(renderer);
+
   return true;
 }
 
@@ -37,12 +39,14 @@ void Game::close() {
 }
 
 void Game::update(float dt) {
-  printf("Update! dt: %f\n", dt);
+  playState.update(dt);
 }
 
 void Game::render() {
   SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
   SDL_RenderClear(renderer);
+
+  playState.render();
 
   SDL_RenderPresent(renderer);
 }
