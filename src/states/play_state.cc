@@ -2,6 +2,8 @@
 
 PlayState::PlayState() {
   texture = new Texture();
+  stickX = 0;
+  stickY = 0;
 }
 
 PlayState::~PlayState() {
@@ -13,9 +15,10 @@ void PlayState::init(SDL_Renderer *renderer) {
 }
 
 void PlayState::update(float dt) {
-
+  stickX += 100 * dt;
+  stickY += 100 * dt;
 }
 
 void PlayState::render() {
-  texture->render(0, 0);
+  texture->render((int) stickX, (int) stickY);
 }

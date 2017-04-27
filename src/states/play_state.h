@@ -10,4 +10,6 @@ class PlayState {
     void render();
   private:
     Texture *texture;
+    float stickX;
+    float stickY;
 };
